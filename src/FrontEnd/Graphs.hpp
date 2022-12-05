@@ -7,7 +7,7 @@
 #include <stdexcept>
 #include <algorithm>
 
-class Token {
+class Graphs {
 public:
   
 private:
