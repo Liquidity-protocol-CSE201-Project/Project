@@ -2,10 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QtCharts>
-#include <QChartView>
-#include <QLineSeries>
-#include <QSplineSeries>
+
+#include <QWidget>
+
+#include <QToolBar>
 
 
 QT_BEGIN_NAMESPACE
