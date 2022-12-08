@@ -1,4 +1,8 @@
-QT += quick
+QT += quick core gui
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -12,6 +16,11 @@ SOURCES += \
         src/Utilities/Operation.cpp \
         src/Utilities/PoolInterface.cpp \
         src/Utilities/Token.cpp \
+        src/FrontEnd/Graphs.cpp \
+        src/FrontEnd/Graphs.hpp \
+        src/FrontEnd/GraphsTest.cpp \
+        src/FrontEnd/main.cpp \
+        src/FrontEnd/mainwindowGRAPHS.cpp \
 
 RESOURCES += qml.qrc
 
@@ -32,4 +41,9 @@ HEADERS += \
     src/Protocols/BalancerPool.hpp \
     src/Protocols/ConstantSum.hpp \
     src/Protocols/UniswapV2Pool.hpp \
-    src/Protocols/UniswapV3Pool.hpp
+    src/Protocols/UniswapV3Pool.hpp \
+    mainwindow.h \
+
+
+FORMS += \
+    mainwindow.ui

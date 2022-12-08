@@ -12,7 +12,8 @@ public:
     
     std::string GetTitle();
     TX GetX();
-    TY GetY()
+    TY GetY();
+    int ExecuteGraph();
 
 
 private:
