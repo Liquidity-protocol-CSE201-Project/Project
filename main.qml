@@ -19,4 +19,38 @@ Window {
         text: "Click Me"
         onClicked: playground.callMe()
     }
+    /*
+    SwipeView {
+        id: swipeView
+        anchors.fill: parent
+        //currentIndex: tabBar.currentIndex
+
+        Page {
+            Button {
+                id: myButton
+                anchors.centerIn: parent
+                text: "Click Me"
+                onClicked: playground.callMe()
+            }
+        }
+
+        Page {
+        }
+    }
+
+    footer:TabBar {
+        id:tabBar
+        //currentIndex:swipeView.currentIndex
+
+        TabButton {
+            text: qsTr("Page 1")
+            onClicked: swipeView.currentIndex = 0
+        }
+        TabButton {
+            text:qsTr("Page 2")
+            onClicked: swipeView.currentIndex = 1
+        }
+    }
+}
+*/
 }
