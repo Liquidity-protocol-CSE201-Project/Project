@@ -1,1 +1,3 @@
-example
+Tu Nguyen
+- Completed: Add token section to the playground GUI, which enable users to create a new token with default price to be 0.
+- Working on: Allow user to custom the initial price of the token.
