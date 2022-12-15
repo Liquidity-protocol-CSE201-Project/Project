@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>225</width>
-    <height>307</height>
+    <height>343</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -45,7 +45,11 @@ color: rgb(255, 0, 0);</string>
     <widget class="QComboBox" name="comboBox_2"/>
    </item>
    <item>
-    <widget class="QTextBrowser" name="textBrowser"/>
+    <widget class="QLabel" name="label_5">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_3">
@@ -56,6 +60,16 @@ color: rgb(255, 0, 0);</string>
    </item>
    <item>
     <widget class="QComboBox" name="comboBox_3"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Pool Fee (if pool doesn't exist)</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="lineEdit_2"/>
    </item>
    <item>
     <widget class="QPushButton" name="pushButton">

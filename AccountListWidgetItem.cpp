@@ -20,6 +20,8 @@ AccountListWidgetItem::~AccountListWidgetItem()
     delete ui;
 }
 
+
+
 void AccountListWidgetItem::VerifyData(Token *token, double quantity)
 {
     account_->Deposit(token, quantity);

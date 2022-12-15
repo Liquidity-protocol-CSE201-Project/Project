@@ -1,6 +1,8 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 #include "src/Utilities/Utilities.hpp"
+#include "src/Protocols/UniswapV2Pool.hpp"
+#include "MetricsTable.h"
 #include "AccountListWidgetItem.h"
 #include "TokenListWidgetItem.h"
 #include <QMessageBox>
@@ -57,3 +59,23 @@ void MainWindow::on_pushButton_2_clicked()
         ui->listWidget_2->setItemWidget(item, token_item);
     }
 }
+
+//void MainWindow::CreatePool(Account* account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee) {
+//    UniswapV2Pool pool({token1, token2}, pool_fee);
+//    QListWidgetItem *item = new QListWidgetItem(ui->listWidget_3);
+//    ui->listWidget_3->addItem(item);
+//    MetricsTable *metrics_table = new MetricsTable(this, &pool);
+//    //item->setSizeHint(metrics_table>sizeHint());
+//    ui->listWidget_3->setItemWidget(item, metrics_table);
+//}
+
+//void MainWindow::UpdatePool(Account* account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee) {
+//    return;
+//}
+
+void MainWindow::VerifyPool(Token* token1, double quantity1, Token* token2, std::string protocol)
+{
+    //UniswapV2Pool::Provide(account, token1, token2, quantity1, quantity2, pool_fee);
+    return;
+}
+
