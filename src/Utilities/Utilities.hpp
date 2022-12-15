@@ -22,8 +22,8 @@ public:
 
 	double real_value() const;
 	void set_real_value(double real_value);
-private:
-	Token(const std::string &name) : name_(name), real_value_(0) {}
+
+    Token(const std::string &name) : name_(name), real_value_(0) {}
 
 	static std::unordered_map<std::string, Token *> existing_tokens_;
 	std::string name_;
@@ -103,6 +103,7 @@ public:
 
     std::unordered_set<Token *> tokens() const;
 
+    double SimulateTradeDemand(Token *input_token, Token *output_token, double output_quantity) const;
     double SimulateSwap(Token *input_token, Token *output_token, double input_quantity) const;
     Operation * Swap(Account *trader, Token *input_token, Token *output_token, double input_quantity);
 
@@ -115,12 +116,13 @@ public:
     double GetSlippage(Token *input_token, Token *output_token, double input_quantity) const;
 
     std::vector<Operation *> ledger() const;
-protected:
+
     virtual double ComputeSwappedQuantity(Token *input_token, Token *output_token, double input_quantity) const = 0;
     virtual double ComputeInvariant(const std::unordered_map<Token *, double> &quantities) const = 0;
     virtual double ComputeSpotExchangeRate(Token *input_token, Token *output_token) const;
     virtual double ComputeSlippage(Token *input_token, Token *output_token, double input_quantity) const;
-private:
+    virtual double ComputeInputRequirement(Token *input_token, Token *output_token, double output_quantity) const = 0;
+
     std::unordered_map<Token *, double> quantities_;
     double pool_fee_;
     Token *pool_token_;
