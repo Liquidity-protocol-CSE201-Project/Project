@@ -8,7 +8,6 @@
 #include <algorithm>
 #include <list>
 
-//hi
 
 Graphs::Graphs(QWidget *parent) :
     QDialog(parent),
