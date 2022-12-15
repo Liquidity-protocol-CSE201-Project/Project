@@ -16,18 +16,20 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr, PoolInterface *pool =  nullptr);
+    explicit MainWindow(QWidget *parent = nullptr, UniswapV2Pool* =  nullptr);
     ~MainWindow();
    // void CreatePool(Account* account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee);
    // void UpdatePool(Account* account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee);
 
 public slots:
-    void VerifyPool(Account *account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee);
+    void VerifyPool(Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee);
 
 private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
+
+    //void on_pushButton_3_clicked();
 
 private:
     Ui::MainWindow *ui;

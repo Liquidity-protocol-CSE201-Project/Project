@@ -19,6 +19,7 @@ public:
     ~AccountListWidgetItem();
     void CreateNewWalletItem(Token* token);
     void UpdateWalletItem(Token* token);
+    Account* get_account();
 
 public slots:
     void VerifyData(Token *token, double quantity);

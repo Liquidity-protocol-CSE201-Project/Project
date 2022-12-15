@@ -80,3 +80,7 @@ void AccountListWidgetItem::UpdateWalletItem(Token* token){
         ui->listWidget->setItemWidget(item, wallet_item);
     }
 }
+
+Account* AccountListWidgetItem::get_account(){
+    return account_;
+}

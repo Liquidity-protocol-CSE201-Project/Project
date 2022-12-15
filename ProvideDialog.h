@@ -22,7 +22,7 @@ signals:
 
 private slots:
     void on_pushButton_clicked();
-    void display_other_token();
+    //void display_other_token();
 
 
 private:

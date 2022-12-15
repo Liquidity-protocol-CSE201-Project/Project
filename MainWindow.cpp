@@ -9,12 +9,13 @@
 #include <QMessageBox>
 #include <tuple>
 
-MainWindow::MainWindow(QWidget *parent, PoolInterface *pool) :
+MainWindow::MainWindow(QWidget *parent, UniswapV2Pool* pool) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     pool_(pool)
 {
     ui->setupUi(this);
+
 
 //    QListWidgetItem *item = new QListWidgetItem(ui->listWidget_3);
 //    ui->listWidget_3->addItem(item);
@@ -62,6 +63,12 @@ void MainWindow::on_pushButton_2_clicked()
     }
 }
 
+////void MainWindow::on_pushButton_3_clicked()
+//{
+//    provide_dialog = new ProvideDialog(this);
+//    provide_dialog->exec();
+//}
+
 
 //void MainWindow::CreateNewPool(Account* account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee) {
 //    UniswapV2Pool pool({token1, token2}, pool_fee);
@@ -88,10 +95,19 @@ void AccountListWidgetItem::UpdateWalletItem(Token* token){
     }
 }*/
 
-void MainWindow::VerifyPool(Account *account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee)
+void MainWindow::VerifyPool(Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee)
 {
+    QListWidgetItem* item = ui->listWidget->currentItem();
+    AccountListWidgetItem* account_item = qobject_cast<AccountListWidgetItem*>(ui->listWidget->itemWidget(item));
+    Account* curr_account = account_item->get_account();
     //UniswapV2Pool::Provide(account, token1, token2, quantity1, quantity2, pool_fee);
-    pool_->UniswapV2Pool::Provide(account, token1, token2, quantity1, quantity2, pool_fee);
+    pool_->UniswapV2Pool::Provide(curr_account, token1, token2, quantity1, quantity2, pool_fee);
+
+    QListWidgetItem *item_tab = new QListWidgetItem(ui->listWidget_3);
+    ui->listWidget_3->addItem(item_tab);
+    MetricsTable *metrics_table = new MetricsTable(this, pool_);
+    //item->setSizeHint(metrics_table>sizeHint());
+    ui->listWidget_3->setItemWidget(item_tab, metrics_table);
     /*
     if(std::find(UniswapV2Pool::existing_pools().begin(), UniswapV2Pool::existing_pools().end(), pool_) != UniswapV2Pool::existing_pools().end())){
     CreateNewPool(token1, token2, quantity1, quantity2, pool_fee)
