@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "src/Utilities/Utilities.hpp"
 
+
 namespace Ui {
 class ProvideDialog;
 }
@@ -17,7 +18,7 @@ public:
     ~ProvideDialog();
 
 signals:
-    void SendData(Token *token1, double quantity1, Token *token2, std::string protocol, double pool_fee);
+    void SendData(Token *token1, double quantity1, Token *token2, double quantity2, std::string protocol, double pool_fee);
 
 private slots:
     void on_pushButton_clicked();

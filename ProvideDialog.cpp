@@ -34,13 +34,13 @@ ProvideDialog::~ProvideDialog()
 
 void ProvideDialog::on_pushButton_clicked()
 {
-    emit SendData(Token::existing_tokens()[ui->comboBox->currentIndex()], ui->lineEdit->text().toDouble(), Token::existing_tokens()[ui->comboBox_2->currentIndex()], protocols[ui->comboBox_3->currentIndex()], ui->lineEdit_2->text().toDouble());
+    emit SendData(Token::existing_tokens()[ui->comboBox->currentIndex()], ui->lineEdit->text().toDouble(), Token::existing_tokens()[ui->comboBox_2->currentIndex()],ui->lineEdit_2->text().toDouble(), protocols[ui->comboBox_3->currentIndex()], ui->lineEdit_3->text().toDouble());
 }
 
 void ProvideDialog::display_other_token()
 {
     std::string used_protocol = protocols[ui->comboBox_2->currentIndex()];
 
-    emit SendData(Token::existing_tokens()[ui->comboBox_2->currentIndex()], ui->lineEdit->text().toDouble(),Token::existing_tokens()[ui->comboBox_2->currentIndex()], protocols[ui->comboBox_3->currentIndex()], ui->lineEdit_2->text().toDouble());
+    emit SendData(Token::existing_tokens()[ui->comboBox->currentIndex()], ui->lineEdit->text().toDouble(), Token::existing_tokens()[ui->comboBox_2->currentIndex()],ui->lineEdit_2->text().toDouble(), protocols[ui->comboBox_3->currentIndex()], ui->lineEdit_3->text().toDouble());
 }
 

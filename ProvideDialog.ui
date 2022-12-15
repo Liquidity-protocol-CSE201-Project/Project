@@ -45,11 +45,7 @@ color: rgb(255, 0, 0);</string>
     <widget class="QComboBox" name="comboBox_2"/>
    </item>
    <item>
-    <widget class="QLabel" name="label_5">
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
+    <widget class="QLineEdit" name="lineEdit_2"/>
    </item>
    <item>
     <widget class="QLabel" name="label_3">
@@ -69,7 +65,7 @@ color: rgb(255, 0, 0);</string>
     </widget>
    </item>
    <item>
-    <widget class="QLineEdit" name="lineEdit_2"/>
+    <widget class="QLineEdit" name="lineEdit_3"/>
    </item>
    <item>
     <widget class="QPushButton" name="pushButton">

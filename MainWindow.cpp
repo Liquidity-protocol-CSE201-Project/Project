@@ -5,12 +5,14 @@
 #include "MetricsTable.h"
 #include "AccountListWidgetItem.h"
 #include "TokenListWidgetItem.h"
+#include "ProvideDialog.h"
 #include <QMessageBox>
 #include <tuple>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent, PoolInterface *pool) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow),
+    pool_(pool)
 {
     ui->setupUi(this);
 
@@ -60,7 +62,8 @@ void MainWindow::on_pushButton_2_clicked()
     }
 }
 
-//void MainWindow::CreatePool(Account* account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee) {
+
+//void MainWindow::CreateNewPool(Account* account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee) {
 //    UniswapV2Pool pool({token1, token2}, pool_fee);
 //    QListWidgetItem *item = new QListWidgetItem(ui->listWidget_3);
 //    ui->listWidget_3->addItem(item);
@@ -73,9 +76,33 @@ void MainWindow::on_pushButton_2_clicked()
 //    return;
 //}
 
-void MainWindow::VerifyPool(Token* token1, double quantity1, Token* token2, std::string protocol)
+/*
+void AccountListWidgetItem::UpdateWalletItem(Token* token){
+    for(int i = 0; i < ui->listWidget->count(); i++){
+        QListWidgetItem* item = ui->listWidget->item(i);
+        WalletListWidgetItem* wallet_item = qobject_cast<WalletListWidgetItem*>(ui->listWidget->itemWidget(item));
+        if(wallet_item->GetTokenName() == token->name()){
+            wallet_item->UpdateTokenQuantity(account_->GetQuantity(token));
+        }
+        ui->listWidget->setItemWidget(item, wallet_item);
+    }
+}*/
+
+void MainWindow::VerifyPool(Account *account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee)
 {
     //UniswapV2Pool::Provide(account, token1, token2, quantity1, quantity2, pool_fee);
+    pool_->UniswapV2Pool::Provide(account, token1, token2, quantity1, quantity2, pool_fee);
+    /*
+    if(std::find(UniswapV2Pool::existing_pools().begin(), UniswapV2Pool::existing_pools().end(), pool_) != UniswapV2Pool::existing_pools().end())){
+    CreateNewPool(token1, token2, quantity1, quantity2, pool_fee)
+}else{
+    UpdatePool(token1, token2, quantity1)
+
+}
+
+    */
+    provide_dialog->accept();
     return;
 }
+
 
