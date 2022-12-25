@@ -2,10 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "src/Utilities/Utilities.hpp"
-#include "ProvideDialog.h"
-#include "src/Protocols/UniswapV2Pool.hpp"
-
+#include "src/Playground.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,25 +13,17 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr, UniswapV2Pool* =  nullptr);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-   // void CreatePool(Account* account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee);
-   // void UpdatePool(Account* account, Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee);
-
-public slots:
-    void VerifyPool(Token* token1, double quantity1, Token* token2, double quantity2, std::string protocol, double pool_fee);
 
 private slots:
-    void on_pushButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_create_toekn_pushButton_clicked();
 
-    //void on_pushButton_3_clicked();
+    void on_create_account_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
-    ProvideDialog *provide_dialog;
-    UniswapV2Pool *pool_;
-
+    Playground *playground_;
 };
 #endif // MAINWINDOW_H
