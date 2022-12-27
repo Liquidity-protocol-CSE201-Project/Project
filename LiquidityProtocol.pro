@@ -13,6 +13,8 @@ SOURCES += \
     MintDialog.cpp \
     TokenListWidgetItem.cpp \
     TradeDialog.cpp \
+    ProvideDialog.cpp \
+    MetricsTable.cpp \
     WalletListWidgetItem.cpp \
     main.cpp \
     MainWindow.cpp \
@@ -26,9 +28,12 @@ SOURCES += \
 HEADERS += \
     AccountListWidgetItem.h \
     MainWindow.h \
+    MetricsTable.h \
     MintDialog.h \
     TokenListWidgetItem.h \
     TradeDialog.h \
+    ProvideDialog.h \
+    MetricsTable.h \
     WalletListWidgetItem.h \
     src/Utilities/Utilities.hpp \
     src/Protocols/BalancerPool.hpp \
@@ -41,10 +46,13 @@ HEADERS += \
 FORMS += \
     AccountListWidgetItem.ui \
     MainWindow.ui \
+    MetricsTable.ui \
     MintDialog.ui \
     TokenListWidgetItem.ui \
     TradeDialog.ui \
-    WalletListWidgetItem.ui
+    MetricsTable.ui \
+    WalletListWidgetItem.ui \
+    ProvideDialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

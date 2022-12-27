@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include "src/Utilities/Utilities.hpp"
-
+#include "src/Playground.hpp"
 
 namespace Ui {
 class ProvideDialog;
@@ -14,7 +14,7 @@ class ProvideDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ProvideDialog(QWidget *parent = nullptr);
+    explicit ProvideDialog(QWidget *parent = nullptr, Playground* playground=nullptr, Account* account_=nullptr);
     ~ProvideDialog();
 
 signals:
@@ -27,6 +27,8 @@ private slots:
 
 private:
     Ui::ProvideDialog *ui;
+    Playground *playground_;
+    Account* account_;
 };
 
 #endif // PROVIDEDIALOG_H
