@@ -68,3 +68,8 @@ void AccountListWidgetItem::on_trade_pushButton_clicked()
     trade_dialog->exec();
 }
 
+void AccountListWidgetItem::on_withdraw_pushButton_clicked()
+{
+    withdraw = new Withdraw(this, playground_, account_);
+    withdraw->exec();
+}
