@@ -20,6 +20,11 @@ AccountListWidgetItem::~AccountListWidgetItem()
     delete ui;
 }
 
+Account *AccountListWidgetItem::account() const
+{
+    return account_;
+}
+
 void AccountListWidgetItem::VerifyMintRequest(Token *token, double quantity)
 {
     try {

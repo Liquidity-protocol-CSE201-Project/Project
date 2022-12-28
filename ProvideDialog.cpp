@@ -5,7 +5,7 @@
 
 std::vector<std::string> protocols{ "Balancer", "ConstantSum", "UniswapV2", "UniswapV3" };
 
-ProvideDialog::ProvideDialog(QWidget *parent, Playground* playground=nullptr, Account* account_=nullptr):
+ProvideDialog::ProvideDialog(QWidget *parent, Playground* playground, Account* account):
     QDialog(parent),
     ui(new Ui::ProvideDialog),
     playground_(playground),

@@ -14,7 +14,7 @@ class ProvideDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ProvideDialog(QWidget *parent = nullptr, Playground* playground=nullptr, Account* account_=nullptr);
+    explicit ProvideDialog(QWidget *parent = nullptr, Playground *playground = nullptr, Account *account = nullptr);
     ~ProvideDialog();
 
 signals:
