@@ -3,6 +3,7 @@
 
 #include "../Utilities/Utilities.hpp"
 #include <cmath>
+#include <cassert>
 
 double solve(int n, double a, double b); // solve equation x^n + ax + b = 0
 
