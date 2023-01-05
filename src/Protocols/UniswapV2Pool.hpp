@@ -5,8 +5,12 @@
 
 class UniswapV2Pool : public PoolInterface {
 public:
-    using PoolInterface::PoolInterface;
+    friend class Playground;
+    friend class Market;
+
 private:
+    using PoolInterface::PoolInterface;
+
     double ComputeInvariant(const std::unordered_map<Token *, double> &quantities) const {
         double ans = 1;
         for (auto [token, quantity] : quantities) {
@@ -28,4 +32,4 @@ private:
     }
 };
 
-#endif
+#endif //UNISWAP_V2_POOL_HPP
