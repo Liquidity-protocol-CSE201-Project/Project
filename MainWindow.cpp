@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <tuple>
 #include "src/Playground.hpp"
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,6 +15,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     playground_ = new Playground;
+
+    QFile stylesheet("/Users/ad1thya_r/Documents/#École Polytechnique/Semester 3/CSE201/##PROJECT-LIQUIDITY-PROTOCOL/Project/stylesheet.qss");
+    stylesheet.open(QFile::ReadOnly);
+    QString setSheet = QLatin1String(stylesheet.readAll());
+    QWidget::setStyleSheet(setSheet);
 }
 
 MainWindow::~MainWindow()
