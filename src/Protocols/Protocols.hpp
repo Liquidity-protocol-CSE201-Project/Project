@@ -3,17 +3,29 @@
 
 #include "UniswapV2Pool.hpp"
 #include "UniswapV3Pool.hpp"
+#include "ConstantSum.hpp"
 #include "BalancerPool.hpp"
 #include "CurvePool.hpp"
-#include "ConstantSum.hpp"
+#include <QVariant>
 
 enum PROTOCOL {
-    UNISWAP_V2 = 0,
-    UNISWAP_V3 = 1,
-    BALANCER = 2,
-    CURVE = 3,
-    CONSTANT_SUM = 4
+    UNISWAP_V2,
+    UNISWAP_V3,
+    CONSTANT_SUM,
+    BALANCER,
+    CURVE
 };
-PROTOCOL getPoolType(PoolInterface *pool);
 
-#endif
+static const std::unordered_map<PROTOCOL, std::string> PROTOCOL_NAME({
+        {PROTOCOL::UNISWAP_V2, "UNISWAP V2"},
+        {PROTOCOL::UNISWAP_V3, "UNISWAP V3"},
+        {PROTOCOL::CONSTANT_SUM, "CONSTANT SUM"},
+        {PROTOCOL::BALANCER, "BALANCER"},
+        {PROTOCOL::CURVE, "CURVE"}
+});
+
+PROTOCOL GetPoolType(PoolInterface *pool);
+
+Q_DECLARE_METATYPE(PROTOCOL);
+
+#endif // PROTOCOLS_HPP

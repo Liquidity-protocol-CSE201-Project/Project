@@ -9,6 +9,14 @@
 #include <vector>
 #include <iostream>
 #include <utility>
+#include <QVariant>
+
+template<typename T1, typename T2>
+std::unordered_set<T1> GetKeys(const std::unordered_map<T1, T2> &mp);
+
+namespace Utilities {
+bool ValidNumber(std::string text);
+}
 
 class PoolInterface;
 
@@ -72,6 +80,7 @@ public:
 
     std::string operation_type() const;
     std::string account_name() const;
+    PoolInterface *pool() const;
     std::unordered_map<Token *, double> input() const;
     std::unordered_map<Token *, double> output() const;
 
@@ -143,7 +152,7 @@ public:
     std::vector<Operation *> ledger() const;
 
 protected:
-    static constexpr double INITIAL_POOL_TOKEN_SUPPLY = 1;
+    static constexpr double INITIAL_POOL_TOKEN_SUPPLY = 100;
 
     PoolInterface(std::unordered_set<Token *> tokens, double pool_fee);
     PoolInterface(std::unordered_map<Token *, double> quantities, double pool_fee);
@@ -183,5 +192,8 @@ private:
 
     void ExecuteWithdrawal(Account *provider, double surrendered_pool_token_quantity, std::unordered_map<Token *, double> output_quantities);
 };
+
+Q_DECLARE_METATYPE(PoolInterface *);
+Q_DECLARE_METATYPE(Token *);
 
 #endif // UTILITIES_HPP
